@@ -87,13 +87,21 @@ async function generatePDF(data, passportImageData, idDocuments) {
     // Add passport photo if available
     if (passportImageData) {
         try {
-            const format = passportImageData.includes('png') ? 'PNG' : 'JPEG';
+            // Robustly detect image format from data URL
+            let format = 'JPEG'; // default
+            const mimeMatch = passportImageData.match(/data:image\/([a-zA-Z0-9+]+);/);
+            if (mimeMatch) {
+                const mime = mimeMatch[1].toLowerCase();
+                if (mime === 'png')  format = 'PNG';
+                else if (mime === 'webp') format = 'WEBP';
+                else format = 'JPEG'; // covers jpeg, jpg, etc.
+            }
             doc.addImage(passportImageData, format, 175, 8, 25, 30);
             doc.setDrawColor(...colors.white);
             doc.setLineWidth(0.5);
             doc.rect(175, 8, 25, 30, 'S');
         } catch (error) {
-            console.log('Could not add passport photo to PDF');
+            console.error('Could not add passport photo to PDF:', error);
         }
     }
 
