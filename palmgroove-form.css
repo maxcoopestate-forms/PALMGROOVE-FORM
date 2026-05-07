@@ -21,8 +21,9 @@
     --text-light: #666666;              /* Light Gray */
     --background: #f8f4f8;              /* Light Purple Background */
     --border-color: #d4a5d4;            /* Light Purple Border */
-    --white: #ffffff;
     --yellow: #e2e606;                  /* Yellow */
+    --white: #ffffff;
+   
 }
 
 body {
@@ -165,7 +166,7 @@ body {
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
     font-family: Georgia, serif;
     letter-spacing: 2px;
-    color: var(yellow);
+    color: var(--yellow);
 }
 
 .tagline {
