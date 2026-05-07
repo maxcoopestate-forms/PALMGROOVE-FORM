@@ -101,7 +101,7 @@ async function generatePDF(data, passportImageData, idDocuments) {
     doc.setFontSize(22);
     doc.setTextColor(...colors.white);
     doc.setFont(undefined, 'bold');
-    doc.text('Palmgroove', 88, 26, { align: 'center' });
+    doc.text('PALMGROOVE', 88, 26, { align: 'center' });
 
     // Subtitle
     doc.setFontSize(12);
