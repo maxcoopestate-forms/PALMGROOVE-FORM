@@ -135,8 +135,7 @@ body {
     background-size: cover;
     background-position: center;
     position: relative;
-    background-image: linear-gradient(135deg, rgba(107, 44, 107, 0.7), rgba(139, 34, 82, 0.7)),
-                      url('palmgroove-bg.jpg');
+    background-image: url('palmgroove-bg.jpg');
 }
 
 .hero-overlay {
