@@ -37,8 +37,9 @@ async function generatePDF(data, passportImageData, idDocuments) {
     // ========================================
     
     // Gradient background (Purple to Maroon)
-    for (let i = 0; i < 40; i++) {
-        const ratio = i / 40;
+    // Header height = 46mm  (gradient fills rows 0-46)
+    for (let i = 0; i < 46; i++) {
+        const ratio = i / 46;
         const r = colors.primaryPurple[0] + (colors.primaryMaroon[0] - colors.primaryPurple[0]) * ratio;
         const g = colors.primaryPurple[1] + (colors.primaryMaroon[1] - colors.primaryPurple[1]) * ratio;
         const b = colors.primaryPurple[2] + (colors.primaryMaroon[2] - colors.primaryPurple[2]) * ratio;
@@ -46,66 +47,72 @@ async function generatePDF(data, passportImageData, idDocuments) {
         doc.rect(0, i, 210, 1, 'F');
     }
 
-    // Add decorative border
+    // Gold border around full header
     doc.setDrawColor(...colors.accentGold);
     doc.setLineWidth(2);
-    doc.rect(5, 5, 200, 35, 'S');
+    doc.rect(5, 5, 200, 40, 'S');
 
     // ========================================
-    // ADD LOGOS TO HEADER
+    // PASSPORT PHOTO – right side, full height
+    // x=172, y=7, w=29, h=33
     // ========================================
-    try {
-        // MAXCOOP logo – left side, top
-        doc.addImage(LOGO_MAXCOOP, 'JPEG', 8, 7, 38, 12);
-    } catch (e) { console.log('Could not add MAXCOOP logo'); }
-
-    try {
-        // M (Mc) logo – left side, bottom
-        doc.addImage(LOGO_M, 'JPEG', 8, 21, 14, 16);
-    } catch (e) { console.log('Could not add M logo'); }
-
-    try {
-        // Palmgroove / Coop City Anambra logo – right of centre, before passport slot
-        doc.addImage(LOGO_PALMGROOVE, 'JPEG', 143, 7, 28, 28);
-    } catch (e) { console.log('Could not add Palmgroove logo'); }
-
-    // Company Name
-    doc.setFontSize(28);
-    doc.setTextColor(...colors.white);
-    doc.setFont(undefined, 'bold');
-    doc.text('Palmgroove', 105, 18, { align: 'center' });
-    
-    // Subtitle
-    doc.setFontSize(18);
-    doc.text('COOPERATIVE AGRO ESTATE', 105, 27, { align: 'center' });
-    
-    // Location
-    doc.setFontSize(12);
-    doc.setTextColor(...colors.accentGold);
-    doc.text('ATANI, ANAMBRA STATE', 105, 35, { align: 'center' });
-
-    // Add passport photo if available
     if (passportImageData) {
         try {
-            // Robustly detect image format from data URL
-            let format = 'JPEG'; // default
+            let format = 'JPEG';
             const mimeMatch = passportImageData.match(/data:image\/([a-zA-Z0-9+]+);/);
             if (mimeMatch) {
                 const mime = mimeMatch[1].toLowerCase();
                 if (mime === 'png')  format = 'PNG';
                 else if (mime === 'webp') format = 'WEBP';
-                else format = 'JPEG'; // covers jpeg, jpg, etc.
+                else format = 'JPEG';
             }
-            doc.addImage(passportImageData, format, 175, 8, 25, 30);
+            doc.addImage(passportImageData, format, 172, 7, 29, 33);
+            // White border around passport
             doc.setDrawColor(...colors.white);
-            doc.setLineWidth(0.5);
-            doc.rect(175, 8, 25, 30, 'S');
+            doc.setLineWidth(1);
+            doc.rect(172, 7, 29, 33, 'S');
         } catch (error) {
             console.error('Could not add passport photo to PDF:', error);
         }
     }
 
-    yPos = 50;
+    // ========================================
+    // THREE LOGOS – centered row at the top
+    // Available width (excluding passport): x=8 to x=168 → centre=88
+    // Logo sizes: MAXCOOP 27×9, Mc 9×9, CoopCity 28×9  gap=3mm each
+    // Total = 27+3+9+3+28 = 70mm  → start at 88-35 = 53
+    // ========================================
+    try {
+        doc.addImage(LOGO_MAXCOOP,    'JPEG', 53, 7,  27, 9);
+    } catch (e) { console.log('Could not add MAXCOOP logo'); }
+
+    try {
+        doc.addImage(LOGO_M,          'JPEG', 83, 7,  9,  9);
+    } catch (e) { console.log('Could not add M logo'); }
+
+    try {
+        doc.addImage(LOGO_PALMGROOVE, 'JPEG', 95, 7,  28, 9);
+    } catch (e) { console.log('Could not add Palmgroove logo'); }
+
+    // ========================================
+    // TEXT – centered in the left portion (centre x=88)
+    // ========================================
+    // Company name
+    doc.setFontSize(22);
+    doc.setTextColor(...colors.white);
+    doc.setFont(undefined, 'bold');
+    doc.text('Palmgroove', 88, 26, { align: 'center' });
+
+    // Subtitle
+    doc.setFontSize(12);
+    doc.text('COOPERATIVE AGRO ESTATE', 88, 34, { align: 'center' });
+
+    // Location in gold
+    doc.setFontSize(9);
+    doc.setTextColor(...colors.accentGold);
+    doc.text('ATANI, ANAMBRA STATE', 88, 41, { align: 'center' });
+
+    yPos = 56;
 
     // Form Title
     doc.setFillColor(...colors.primaryMaroon);
