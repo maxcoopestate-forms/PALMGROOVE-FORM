@@ -1,0 +1,734 @@
+/* ========================================
+   PALMGROOVE AGRIC ESTATE - STYLESHEET
+   Purple/Maroon Branding
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Palmgroove Colors - Purple/Maroon Theme */
+    --primary-purple: #6b2c6b;          /* Deep Purple */
+    --primary-maroon: #8b2252;          /* Maroon */
+    --accent-gold: #d4af37;             /* Gold */
+    --light-purple: #9b59b6;            /* Light Purple */
+    --dark-purple: #4a1850;             /* Dark Purple */
+    --green-accent: #4a7c4e;            /* Palm Green */
+    --text-dark: #2c2c2c;               /* Dark Gray */
+    --text-light: #666666;              /* Light Gray */
+    --background: #f8f4f8;              /* Light Purple Background */
+    --border-color: #d4a5d4;            /* Light Purple Border */
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--background) 0%, #fff 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(107, 44, 107, 0.15);
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.header {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-maroon) 100%);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 5px solid var(--accent-gold);
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    background: var(--white);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.logo-image-main {
+    height: 70px;
+    width: auto;
+}
+
+.photo-box {
+    text-align: center;
+}
+
+.photo-preview {
+    width: 120px;
+    height: 150px;
+    border: 3px dashed var(--accent-gold);
+    border-radius: 10px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-placeholder {
+    color: var(--primary-purple);
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.3;
+}
+
+#passportImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.upload-btn {
+    background: var(--accent-gold);
+    color: var(--dark-purple);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: #f0c744;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-section {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-image: linear-gradient(135deg, rgba(107, 44, 107, 0.7), rgba(139, 34, 82, 0.7)),
+                      url('palmgroove-bg.jpg');
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(107, 44, 107, 0.85) 0%, 
+        rgba(139, 34, 82, 0.85) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text {
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-text h1 {
+    font-size: 72px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    font-family: Georgia, serif;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+}
+
+.tagline {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.location {
+    font-size: 18px;
+    margin: 5px 0;
+    color: var(--accent-gold);
+    font-weight: 500;
+}
+
+.subtitle {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #e0d0e0;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   FORM TITLE
+   ======================================== */
+
+.form-title {
+    background: linear-gradient(90deg, var(--primary-maroon) 0%, var(--primary-purple) 100%);
+    padding: 25px;
+    text-align: center;
+    border-bottom: 4px solid var(--accent-gold);
+}
+
+.form-title h1 {
+    color: var(--white);
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   LOADING INDICATOR
+   ======================================== */
+
+.loading-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(107, 44, 107, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.spinner {
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid var(--accent-gold);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-indicator p {
+    color: var(--white);
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* ========================================
+   FORM STYLING
+   ======================================== */
+
+.subscription-form {
+    padding: 40px;
+}
+
+.section-header {
+    background: linear-gradient(90deg, var(--primary-maroon) 0%, var(--primary-purple) 100%);
+    color: var(--white);
+    padding: 15px 20px;
+    margin: 30px -40px 20px -40px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-left: 6px solid var(--accent-gold);
+    text-transform: uppercase;
+}
+
+.instruction {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    flex: 1 1 100%;
+}
+
+.form-group.half-width {
+    flex: 1 1 calc(50% - 10px);
+}
+
+.form-group label {
+    color: var(--primary-purple);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.small-text {
+    font-size: 12px;
+    font-weight: normal;
+    color: var(--text-light);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group select {
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(107, 44, 107, 0.1);
+}
+
+.block-input {
+    width: 100%;
+}
+
+.name-title {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: var(--background);
+    border-radius: 8px;
+}
+
+.name-title label {
+    color: var(--text-dark);
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    background: var(--background);
+    border-radius: 8px;
+}
+
+.checkbox-group label {
+    color: var(--text-dark);
+    font-weight: normal;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.small-note {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* ========================================
+   ID UPLOAD SECTIONS
+   ======================================== */
+
+.id-upload-section {
+    background: #faf8fa;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-purple);
+    margin-bottom: 20px;
+}
+
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.upload-btn-secondary {
+    background: var(--primary-purple);
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.upload-btn-secondary:hover {
+    background: var(--primary-maroon);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 44, 107, 0.3);
+}
+
+.file-preview {
+    display: none;
+    padding: 15px;
+    background: var(--white);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.file-preview.active {
+    display: block;
+}
+
+.file-preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.file-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: var(--background);
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.file-info p {
+    color: var(--primary-purple);
+    font-weight: 600;
+    margin: 0;
+}
+
+.remove-btn {
+    background: #dc3545;
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+/* ========================================
+   DECLARATION STYLING
+   ======================================== */
+
+.declaration-text {
+    background: var(--background);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-maroon);
+    margin-bottom: 20px;
+}
+
+.declaration-text p {
+    color: var(--text-dark);
+    font-size: 15px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.affirmation-checkbox {
+    margin-top: 15px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    padding: 15px;
+    background: var(--white);
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.checkbox-label:hover {
+    border-color: var(--primary-purple);
+    background: #faf8fa;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.checkbox-label span {
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-maroon) 0%, var(--primary-purple) 100%);
+    color: var(--white);
+    border: none;
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(107, 44, 107, 0.3);
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(107, 44, 107, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-note {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+    color: var(--white);
+    padding: 40px;
+    margin-top: 40px;
+}
+
+.office-section {
+    margin-bottom: 30px;
+}
+
+.office-section h3 {
+    color: var(--accent-gold);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+.offices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.office {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-gold);
+}
+
+.office h4 {
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.office p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.bank-section {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.bank-section h3 {
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.bank-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.account-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--accent-gold);
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+}
+
+.bank-logo {
+    font-size: 16px;
+    color: var(--white);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .container {
+        border-radius: 0;
+    }
+
+    body {
+        padding: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .logos {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-section {
+        height: 250px;
+    }
+
+    .hero-text h1 {
+        font-size: 48px;
+    }
+
+    .subscription-form {
+        padding: 20px;
+    }
+
+    .section-header {
+        margin-left: -20px;
+        margin-right: -20px;
+        font-size: 16px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group.half-width {
+        flex: 1 1 100%;
+    }
+
+    .name-title {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .offices-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        padding: 20px;
+    }
+
+    .account-number {
+        font-size: 24px;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .upload-btn,
+    .upload-btn-secondary,
+    .submit-btn,
+    .remove-btn {
+        display: none;
+    }
+
+    .container {
+        box-shadow: none;
+    }
+
+    .hero-section {
+        page-break-after: avoid;
+    }
+}
