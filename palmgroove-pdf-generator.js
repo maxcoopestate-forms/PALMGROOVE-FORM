@@ -154,7 +154,7 @@ async function generatePDF(data, passportImageData, idDocuments) {
     function addCheckmark(isChecked) {
         if (isChecked) {
             doc.setTextColor(...colors.primaryMaroon);
-            return '✓ Yes';
+            return 'Yes';
         }
         return 'No';
     }
@@ -224,7 +224,7 @@ async function generatePDF(data, passportImageData, idDocuments) {
                         doc.setFont(undefined, 'normal');
                         doc.setTextColor(...colors.darkGray);
                         doc.setFontSize(9);
-                        doc.text('📄 PDF Document: ' + file.name, 15, yPos);
+                        doc.text('PDF Document: ' + file.name, 15, yPos);
                         yPos += 10;
                     }
                     
@@ -416,7 +416,7 @@ async function generatePDF(data, passportImageData, idDocuments) {
         doc.setFontSize(9);
         doc.setFont(undefined, 'bold');
         doc.setTextColor(...colors.primaryPurple);
-        doc.text('📍 ' + office.name, 15, yPos);
+        doc.text(office.name, 15, yPos);
         yPos += 5;
 
         doc.setFont(undefined, 'normal');
